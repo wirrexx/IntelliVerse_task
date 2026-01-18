@@ -40,3 +40,18 @@ Return response text
 Render it in HTML
 
 
+
+
+## TODO 
+- [x] create virtual environment
+- [x] Install flask
+- [x] check if flask is installed and working
+- [x] create a simply route 
+- [x] create a templates folder
+- [x] create index.html
+- [x] render index.html
+- [x] create function for mistral
+- [ ] create the calls for mistral
+    - [ ] Read the ChatCompletions in Mistral
+    - [ ] Implement role, content
+    - [ ] Implement endpoints
