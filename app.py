@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-import requests
+#import requests
 import os
 
 app = Flask(__name__)
@@ -18,9 +18,8 @@ def call_openroute_api(prompt: str) -> str:
 
 
 @app.route("/")
-def hello_world():
-    return "<p>Hello, World!</p>"
-
+def index():
+    return render_template ("index.html")
 
 
 if __name__ == "__main__":
