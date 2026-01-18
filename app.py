@@ -5,7 +5,7 @@ import os
 app = Flask(__name__)
 
 MISTRAL_API_KEY = os.getenv("MISTRAL_API_KEY")
-OPENROUTE_API_KEY = os.getenv("OPENROUTE_API_KEY")
+OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
 
 
 
@@ -17,10 +17,11 @@ def call_mistral_api(prompt: str) -> str:
         }
     
     payload = {
-        "model":"mistral-large-latest",
+        "model":"mistral-small-latest",
         "message": [{"role": "user", "content": prompt}]
         }
     
+    # send a post request to url, 
     response = requests.post(url, headers=headers, json=payload)
     response.raise_for_status()
     data = response.json()
@@ -29,12 +30,27 @@ def call_mistral_api(prompt: str) -> str:
 
    
 def call_openroute_api(prompt: str) -> str:
-    # query OpenRoute API
-    pass
+    url = "https://openrouter.ai/api/v1/chat/completions"
+    headers = {
+        "Authorization": f"Bearer {OPENROUTER_API_KEY}",
+        "Content-Type": "application/json",
+        "HTTP-Referer": "https://pythonanywhere.com",
+        "X-Title": "Simple Chatbot Demo",
+    }
+    payload = {
+        "model": "mistralai/mistral-7b-instruct",
+        "messages": [{"role": "user", "content": prompt}],
+    }
+
+    response = requests.post(url, headers=headers, json=payload, timeout=30)
+    response.raise_for_status()
+    data = response.json()
+
+    return data["choices"][0]["message"]["content"]
 
 
 
-@app.route("/")
+@app.route("/", methods=["GET", "POST"])
 def index():
     return render_template ("index.html")
 
