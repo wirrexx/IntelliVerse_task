@@ -43,6 +43,7 @@ Render it in HTML
 
 
 ## TODO 
+
 - [x] create virtual environment
 - [x] Install flask
 - [x] check if flask is installed and working
@@ -51,7 +52,14 @@ Render it in HTML
 - [x] create index.html
 - [x] render index.html
 - [x] create function for mistral
-- [ ] create the calls for mistral
-    - [ ] Read the ChatCompletions in Mistral
+- [x] create the calls for mistral
+    - [x] Read the ChatCompletions in Mistral
+    - [x] Implement role, content
+    - [x] Implement endpoints
+    - [ ] test endpoints
+
+- [ ] create the calls for OpenRoute
+    - [ ] Read the Doc OpenRoute
     - [ ] Implement role, content
     - [ ] Implement endpoints
+    - [ ] test endpoints
