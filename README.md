@@ -58,7 +58,7 @@ Render it in HTML
     - [x] Implement endpoints
     - [ ] test endpoints
 
-- [ ] create the calls for OpenRoute
+- [x] create the calls for OpenRoute
     - [ ] Read the Doc OpenRoute
     - [ ] Implement role, content
     - [ ] Implement endpoints
