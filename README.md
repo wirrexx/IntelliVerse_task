@@ -51,6 +51,8 @@ Render it in HTML
 - [x] create a templates folder
 - [x] create index.html
 - [x] render index.html
+
+
 - [x] create function for mistral
 - [x] create the calls for mistral
     - [x] Read the ChatCompletions in Mistral
@@ -58,8 +60,13 @@ Render it in HTML
     - [x] Implement endpoints
     - [ ] test endpoints
 
+    ![Alt text](static/mistral.png)
+
+
+- [x] create function for openrouter
 - [x] create the calls for OpenRoute
     - [ ] Read the Doc OpenRoute
     - [ ] Implement role, content
     - [ ] Implement endpoints
     - [ ] test endpoints
+    ![Alt text](static/openrouter.png)
