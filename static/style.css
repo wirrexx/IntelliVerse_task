@@ -4,11 +4,19 @@
     box-sizing: border-box;
 }
 
+h1, h3, p {
+    align-items: center;
+    justify-content: center;
+}
 .grid-container{
     display: grid;
-    grid-template: auto / repeat(3, 1fr);
+    grid-template: auto / 1fr 60% 1fr;
+    width: 100%;
+    min-width: 50%;
     grid-template-areas:". header ."
-    ". chat .";
+    ". chat ."
+    ". response-header ."
+    ". response .";
 }
 
 .header {
@@ -21,5 +29,22 @@
     margin-top: 1rem;
     grid-area: chat;
     justify-self: center;
+}
+
+p {
+    display: grid;
+}
+
+.response-header {
+    margin-top: 1rem;
+    grid-area: response-header;
+    justify-self: center;
+}
+
+.response {
+    grid-area: response;
+    justify-self: center;
+    text-align: center;
 
 }
+
