@@ -40,7 +40,9 @@ Return response text
 Render it in HTML
 
 
-
+## Topics to Read about:
+Requests (Pip install)
+https://docs.python-requests.org/en/latest/user/quickstart/#more-complicated-post-requests
 
 ## TODO 
 
