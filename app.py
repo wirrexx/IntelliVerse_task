@@ -10,7 +10,7 @@ OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
 
 
 def call_mistral_api(prompt: str) -> str:
-    url = "https://api.mistral.ai/v1/chat/completions "
+    url = "https://api.mistral.ai/v1/chat/completions"
     headers = {
         "Content-Type": "application/json",
         "Authorization": f"Bearer {MISTRAL_API_KEY}"
@@ -18,13 +18,15 @@ def call_mistral_api(prompt: str) -> str:
     
     payload = {
         "model":"mistral-small-latest",
-        "message": [{"role": "user", "content": prompt}]
+        "messages": [{"role": "user", "content": prompt}]
         }
     
-    # send a post request to url, 
+    # 
     response = requests.post(url, headers=headers, json=payload, timeout=30)
     response.raise_for_status()
     data = response.json()
+
+    # returning json data choices = finish reason: stop, message = role: user, content: str parameter
     return data["choices"][0]["message"]["content"]
     
 
