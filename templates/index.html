@@ -18,8 +18,8 @@
 
                     <select name="model">
                         <option value="" disabled selected>Select a model</option>
-                        <option value="mistral">Mistral</option>
-                        <option value="openrouter">OpenRouter</option>
+                        <option value="mistral" >Mistral</option>
+                        <option value="openrouter" >OpenRouter</option>
                     </select>
 
                     <br><br>
@@ -30,11 +30,12 @@
                     <p style="color:red;">{{ error }}</p>
                 {% endif %}
 
-                {% if answer %}
-                    <h3>Response:</h3>
-                    <pre>{{ answer }}</pre>
-                {% endif %}
             </div>  
+                <h3 class="response-header">Response:</h3>
+        
+                {% if answer %}
+                    <p class=response>{{ answer }}</p>
+                {% endif %}
     </div>
 </body>
 </html>
