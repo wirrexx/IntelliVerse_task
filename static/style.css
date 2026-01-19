@@ -7,11 +7,19 @@
 .grid-container{
     display: grid;
     grid-template: auto / repeat(3, 1fr);
-    grid-template-areas:". header .";
+    grid-template-areas:". header ."
+    ". chat .";
 }
 
 .header {
     margin-top: 1rem;
     grid-area: header;
     justify-self: center;
+}
+
+.chat-container {
+    margin-top: 1rem;
+    grid-area: chat;
+    justify-self: center;
+
 }
