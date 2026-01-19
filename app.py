@@ -56,6 +56,7 @@ def call_openroute_api(prompt: str) -> str:
 def index():
     answer = None
     error = None
+    model = None
     # create the logic to call on the apis here
     if request.method == "POST":
         prompt = request.form.get("prompt", "").strip()
