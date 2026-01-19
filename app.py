@@ -75,7 +75,7 @@ def index():
                     error = f"Error: {e}"
 
 
-    return render_template ("index.html", answer=answer, error=error )
+    return render_template ("index.html", answer=answer, error=error, model=model )
 
 
 if __name__ == "__main__":
