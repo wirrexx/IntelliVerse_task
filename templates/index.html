@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="static/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 <body>
     <div class="grid-container">
@@ -12,18 +13,23 @@
             <h1>Simple ChatBot</h1>
         </div>
         <div class="chat-container">
-            <form method="post">
-                    <textarea name="prompt" rows="5" cols="60" placeholder="Enter your message..."></textarea>
+            <form method="post" id="chat-form">
+                    <textarea class="form-control" id="prompt" name="prompt" rows="5" cols="60" placeholder="Enter your message..."></textarea>
                     <br><br>
 
-                    <select name="model">
-                        <option value="" disabled selected>Select a model</option>
-                        <option value="mistral" >Mistral</option>
-                        <option value="openrouter" >OpenRouter</option>
+                    <select class="form-select" name="model">
+                    <option value="mistral" {% if model =='mistral' %}selected{% endif %}>Mistral</option> 
+                    <option value="openrouter" {% if model == 'openrouter' %}selected{% endif %}>OpenRouter</option>                   
                     </select>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="checkDefault" checked>
+                        <label class="form-check-label" for="checkDefault">
+                            Hit enter to send (alt + enter for new line)
+                        </label>
+                    </div>
 
                     <br><br>
-                    <button type="submit">Send</button>
+                    <button type="submit" class="btn btn-primary">Send</button>
                 </form>
 
                 {% if error %}
@@ -37,5 +43,7 @@
                     <p class=response>{{ answer }}</p>
                 {% endif %}
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='chat.js') }}"></script>
 </body>
 </html>
