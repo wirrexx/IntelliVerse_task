@@ -17,6 +17,10 @@ h1, h3, p {
     ". chat ."
     ". response-header ."
     ". response .";
+
+    width: 100%;
+    padding: 1rem;
+    gap: 1rem;
 }
 
 .header {
@@ -48,3 +52,35 @@ p {
 
 }
 
+
+
+
+/* Mobile Functionality */
+@media (max-width: 600px) {
+    .grid-container {
+        grid-template-columns: 1fr; 
+        grid-template-areas:
+            "header"
+            "chat"
+            "response-header"
+            "response";
+    }
+
+    .chat-container, .header, .response-header, .response {
+        justify-self: stretch; 
+        width: 100%;
+    }
+
+    textarea {
+        width: 100%; 
+        font-size: 1rem;
+    }
+
+    select.form-select {
+        width: 100%;
+    }
+
+    button.btn {
+        width: 100%;
+    }
+}
