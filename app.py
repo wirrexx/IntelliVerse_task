@@ -52,9 +52,29 @@ def call_openroute_api(prompt: str) -> str:
 
 @app.route("/", methods=["GET", "POST"])
 def index():
+    answer = None
+    error = None
     # create the logic to call on the apis here
-    return render_template ("index.html")
+    if request.method == "POST":
+        prompt = request.form.get("prompt", "").strip()
+        model = request.form.get("model")
+
+        if not prompt:
+            error = "Please enter a prompt"
+        else:
+            try:
+                if model == "mistral":
+                    answer = call_mistral_api(prompt)
+                elif model == "openrouter":
+                    answer = call_openroute_api(prompt)
+                else:
+                    error = "Please select a model"
+            except Exception as e:
+                    error = f"Error: {e}"
+
+
+    return render_template ("index.html", answer=answer, error=error )
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, port=5001)
