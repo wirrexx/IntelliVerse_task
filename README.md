@@ -77,7 +77,7 @@ https://docs.python-requests.org/en/latest/user/quickstart/#more-complicated-pos
     - [x] test endpoints
     ![Alt text](static/openrouter.png)
 
-- [ ] Deploy to PythonAnywhere!
+- [x] Deploy to PythonAnywhere!
 
 ## !! Remember, Mistral curl and Openroute similiar ways to connect to the API data.!! 
 --------------------------------------------------------------------------------------
