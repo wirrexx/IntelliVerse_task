@@ -11,8 +11,30 @@
         <div class="header">
             <h1>Simple ChatBot</h1>
         </div>
+        <div class="chat-container">
+            <form method="post">
+                    <textarea name="prompt" rows="5" cols="60" placeholder="Enter your message..."></textarea>
+                    <br><br>
 
+                    <select name="model">
+                        <option value="" disabled selected>Select a model</option>
+                        <option value="mistral">Mistral</option>
+                        <option value="openrouter">OpenRouter</option>
+                    </select>
 
+                    <br><br>
+                    <button type="submit">Send</button>
+                </form>
+
+                {% if error %}
+                    <p style="color:red;">{{ error }}</p>
+                {% endif %}
+
+                {% if answer %}
+                    <h3>Response:</h3>
+                    <pre>{{ answer }}</pre>
+                {% endif %}
+            </div>  
     </div>
 </body>
 </html>
