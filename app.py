@@ -22,7 +22,7 @@ def call_mistral_api(prompt: str) -> str:
         }
     
     # send a post request to url, 
-    response = requests.post(url, headers=headers, json=payload)
+    response = requests.post(url, headers=headers, json=payload, timeout=30)
     response.raise_for_status()
     data = response.json()
     return data["choices"][0]["message"]["content"]
@@ -52,6 +52,7 @@ def call_openroute_api(prompt: str) -> str:
 
 @app.route("/", methods=["GET", "POST"])
 def index():
+    # create the logic to call on the apis here
     return render_template ("index.html")
 
 
